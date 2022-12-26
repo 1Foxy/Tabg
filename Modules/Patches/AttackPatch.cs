@@ -1,0 +1,29 @@
+﻿using HarmonyLib;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Rape.Modules.Patches
+{
+    [HarmonyPatch(typeof(MeleeWeapon), "Attack", null)]
+    public static class AttackPatch
+    {
+        private static void Prefix(MeleeWeapon __instance)
+        {
+            if (Config.Config.InstantMelee && __instance != null)
+            {
+                __instance.cd = 0f;
+            }
+            if (Config.Config.InstantKill_ && __instance != null)
+            {
+                __instance.damageOnHit = 99999f;
+            }
+            if (Config.Config.swingTime && __instance != null)
+            {
+                __instance.swingTime = 0f;
+            }
+            
+        }
+    }
+}
