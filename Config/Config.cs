@@ -34,5 +34,7 @@ namespace Rape.Config
         public static bool RemoveShake;
         public static bool LaunchPed;
 
+        public static float BaseForce;
+
     }
 }

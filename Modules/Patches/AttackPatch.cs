@@ -21,7 +21,7 @@ namespace Rape.Modules.Patches
             }
             if (Config.Config.swingTime && __instance != null)
             {
-                __instance.swingTime = 0f;
+                __instance.swingTime = 0.05f;
             }
             
         }

@@ -40,7 +40,7 @@ namespace Rape
             GUILayout.Space(20f);
             Config.Config.InstantMelee = GUILayout.Toggle(Config.Config.InstantMelee, "Instant Melee");
             Config.Config.InstantKill_ = GUILayout.Toggle(Config.Config.InstantKill_, "Insta Kill");
-            Config.Config.swingTime = GUILayout.Toggle(Config.Config.swingTime, "No Swing Time"); 
+            Config.Config.swingTime = GUILayout.Toggle(Config.Config.swingTime, "Fast Swing Time"); 
             GUILayout.EndVertical();
 
         }
@@ -85,10 +85,12 @@ namespace Rape
 
                 GUILayout.Label($"Jump Boost: {Mathf.Floor(Player.localPlayer.stats.jumpMultiplier)}");
                 Player.localPlayer.stats.jumpMultiplier = GUILayout.HorizontalSlider(Player.localPlayer.stats.jumpMultiplier, 1f, 30f);
-            } else {
-                GUILayout.Label("Waiting For LocalPlayer...");
-            }
+            } else { GUILayout.Label("Waiting For LocalPlayer..."); }
+            GUILayout.EndVertical();
 
+            GUILayout.BeginVertical("Car", GUI.skin.box);
+            GUILayout.Space(20f);
+ 
 
             GUILayout.EndVertical();
         }
