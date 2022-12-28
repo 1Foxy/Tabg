@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Rape.Config
 {
@@ -34,7 +35,8 @@ namespace Rape.Config
         public static bool RemoveShake;
         public static bool LaunchPed;
 
-        public static float BaseForce;
-
+        public static float DeceptionBossCarBaseForce = 1.8f;
+        public static float BikeBaseForce = 10;
+        public static float MotorCycleBaseForce = 4;
     }
 }

@@ -55,6 +55,7 @@
     <Compile Include="Config\Config.cs" />
     <Compile Include="GUI.cs" />
     <Compile Include="Loader.cs" />
+    <Compile Include="Modules\Carstuff.cs" />
     <Compile Include="Modules\Managers\CarManager.cs" />
     <Compile Include="Modules\Managers\LaunchPadManager.cs" />
     <Compile Include="Modules\Managers\NetworkManager.cs" />

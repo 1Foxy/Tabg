@@ -88,16 +88,20 @@ namespace Rape
             } else { GUILayout.Label("Waiting For LocalPlayer..."); }
             GUILayout.EndVertical();
 
-            GUILayout.BeginVertical("Car", GUI.skin.box);
+            GUILayout.BeginVertical("Vehicles", GUI.skin.box);
             GUILayout.Space(20f);
- 
+
+            GUILayout.Label($"Car BaseForce: {Mathf.Floor(Config.Config.DeceptionBossCarBaseForce)}");
+            Config.Config.DeceptionBossCarBaseForce = GUILayout.HorizontalSlider(Config.Config.DeceptionBossCarBaseForce, 1.8f, 30f);
+
+            GUILayout.Label($"Bike BaseForce: {Mathf.Floor(Config.Config.BikeBaseForce)}");
+            Config.Config.BikeBaseForce = GUILayout.HorizontalSlider(Config.Config.BikeBaseForce, 10, 30f);
+
+            GUILayout.Label($"Motor BaseForce: {Mathf.Floor(Config.Config.MotorCycleBaseForce)}");
+            Config.Config.MotorCycleBaseForce = GUILayout.HorizontalSlider(Config.Config.MotorCycleBaseForce, 4, 30f);
 
             GUILayout.EndVertical();
         }
-
-        public static AntiCheatClient anti;
-        public static Landfall.Network.MatchmakingSettings matchmaking;
-        public static Landfall.Network.TABGPlayerBase playerBase;
 
         public static void Index4()
         {
@@ -122,8 +126,8 @@ namespace Rape
             }
             if (GUILayout.Button("DDOS server"))
             {
-                PhotonExtensions.photonLoadBalancingClient.NickName = "Fuck Niggers";
-                PhotonExtensions.photonLoadBalancingClient.PhotonServerHandler.EndGame(playerBase.GroupIndex);
+                //PhotonExtensions.photonLoadBalancingClient.NickName = "Fuck Niggers";
+                //PhotonExtensions.photonLoadBalancingClient.PhotonServerHandler.EndGame(playerBase.GroupIndex);
             }
             if(GUILayout.Button("ACKILLER"))
             {

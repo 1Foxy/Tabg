@@ -10,5 +10,6 @@ namespace Rape.Modules.Managers
     {
         public static Car car;
         public static Car[] vehicles;
+        public static Seat seat;
     }
 }

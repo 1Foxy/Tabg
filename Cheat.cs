@@ -58,6 +58,7 @@ namespace Rape
 
             Misc.Update();
             Movement.Update();
+            Carstuff.Update();
 
             if (Input.GetKeyDown(KeyCode.Mouse0) && Config.Config.magicBullet)
             {
