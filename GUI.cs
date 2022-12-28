@@ -100,6 +100,10 @@ namespace Rape
             GUILayout.Label($"Motor BaseForce: {Mathf.Floor(Config.Config.MotorCycleBaseForce)}");
             Config.Config.MotorCycleBaseForce = GUILayout.HorizontalSlider(Config.Config.MotorCycleBaseForce, 4, 30f);
 
+            Config.Config.MakeLowRiderDeceptionBossCar = GUILayout.Toggle(Config.Config.MakeLowRiderDeceptionBossCar, "LowRider Car");
+            Config.Config.MakeLowRiderBike = GUILayout.Toggle(Config.Config.MakeLowRiderBike, "LowRider Bike");
+            Config.Config.MakeLowRiderMotorCycle = GUILayout.Toggle(Config.Config.MakeLowRiderMotorCycle, "LowRider Motor");
+
             GUILayout.EndVertical();
         }
 

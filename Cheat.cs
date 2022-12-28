@@ -28,7 +28,6 @@ namespace Rape
         {
             Patches();
             AC_remove.FuckAC();
-            
         }
 
         public void Keyhandler() {

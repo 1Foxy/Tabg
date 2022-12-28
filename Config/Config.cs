@@ -38,5 +38,12 @@ namespace Rape.Config
         public static float DeceptionBossCarBaseForce = 1.8f;
         public static float BikeBaseForce = 10;
         public static float MotorCycleBaseForce = 4;
+        public static bool MakeLowRiderMotorCycle;
+        public static bool MakeLowRiderDeceptionBossCar;
+        public static bool MakeLowRiderBike;
+
+
+        public static bool Test; //for testing purposes
+
     }
 }

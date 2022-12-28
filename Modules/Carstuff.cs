@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using static VehicleSpawn;
 
 namespace Rape.Modules
 {
@@ -36,28 +37,30 @@ namespace Rape.Modules
                 Script2.baseForce = (float)Config.Config.MotorCycleBaseForce;
             }
 
+            if (Config.Config.MakeLowRiderDeceptionBossCar) //DeceptionBossCar
+            {
+                Script.mainRig.mass = 100000;
+            } else {
+                Script.mainRig.mass = 10000;
+            }
 
+            if (Config.Config.MakeLowRiderBike) //Bike
+            {
+                Script1.mainRig.mass = 100000;
+            } else {
+                Script1.mainRig.mass = 10000;
+            }
 
-            ////Script.drivePitch = float.MaxValue;
-            ////Script.driveVolume = float.MaxValue;
-            ////Script.flatAngularDrag = float.MaxValue;
-            ////Script.flatDrag = float.MaxValue;
-            ////Script.flatDragExponent = float.MaxValue;
-            ////Script.flatFlatDrag = float.MaxValue;
-            ////Script.followVel = float.MaxValue;
+            if (Config.Config.MakeLowRiderMotorCycle) //MotorCycle
+            {
+                Script2.mainRig.mass = 100000;
+            } else {
+                Script2.mainRig.mass = 10000;
+            }
+
             //Console.WriteLine(Script.recievedPosition.ToString());
             //Console.WriteLine(Script.recievedRotation.ToString());
 
-            //Script.driverSeat.gameObject.transform = Config.Config.BaseForce;
-
         }
-
-      
-
-        public static void baseForce()
-        {
-
-        }
-
     }
 }
