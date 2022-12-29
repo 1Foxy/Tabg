@@ -26,13 +26,13 @@ namespace Rape.Config
         public static bool FastHeal;
 
         public static bool InfJump;
+        public static bool Fly;
 
         public static bool item;
         public static bool playerBox;
         public static bool playerName;
         public static bool crosshair = true;
         public static bool Vehicle;
-        public static bool RemoveShake;
         public static bool LaunchPed;
 
         public static float DeceptionBossCarBaseForce = 1.8f;

@@ -6,9 +6,11 @@ using System.Text;
 
 namespace Rape.Modules.Patches
 {
-    [HarmonyPatch(typeof(MeleeWeapon), "Attack", null)]
+    [HarmonyPatch(typeof(MeleeWeapon))]
     public static class AttackPatch
     {
+        [HarmonyPrefix]
+        [HarmonyPatch("Attack")]
         private static void Prefix(MeleeWeapon __instance)
         {
             if (Config.Config.InstantMelee && __instance != null)

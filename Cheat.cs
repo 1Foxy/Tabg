@@ -36,13 +36,15 @@ namespace Rape
             }
         }
 
+       
+
         public void Update() {
             Keyhandler();
 
             if (Time.time >= lastCacheTime)
             {
                 lastCacheTime = Time.time + 5f;
-            
+
                 Modules.Managers.PlayerManager.players = FindObjectsOfType<Player>();
                 Modules.Managers.CarManager.vehicles = FindObjectsOfType<Car>();
 
@@ -75,6 +77,7 @@ namespace Rape
                     }
                 }
             } //detected 
+
         }
 
         public void OnGUI() {
@@ -85,7 +88,7 @@ namespace Rape
         }
 
         private void MainWindow(int id) { 
-            GUILayout.BeginArea(new Rect(20, 70, 460, 460));
+            GUILayout.BeginArea(new Rect(20, 70, 460, 500));
             switch (selectedTab)
             {
                 case 0:
@@ -137,30 +140,9 @@ namespace Rape
         private void Patches()
         {
             var Rawr = new HarmonyLib.Harmony("fudhksbgsuhbj");
+            Rawr.PatchAll();
 
-            try {
-                Rawr.Patch(typeof(Gun).GetMethod("Shoot"), null, new HarmonyMethod(AccessTools.Method(typeof(ShootPatch), ("Prefix"))));
-                Console.WriteLine("~> Gun patch   [Success]");
-            } catch (Exception ex) {
-                Console.WriteLine("~> Gun patch   [Failed]");
-                //Console.WriteLine(ex);
-            }
 
-            try {
-                Rawr.Patch(typeof(WobbleShake).GetMethod("AddShake"), new HarmonyMethod(AccessTools.Method(typeof(NoShake), ("Prefix"))));
-                Console.WriteLine("~> Shake patch [Success]");
-            } catch (Exception ex) {
-                Console.WriteLine("~> Shake patch [Failed]");
-                //Console.WriteLine(ex);
-            }
-
-            try {
-                Rawr.Patch(typeof(MeleeWeapon).GetMethod("Attack"), new HarmonyMethod(AccessTools.Method(typeof(AttackPatch), ("Prefix"))));
-                Console.WriteLine("~> Melee patch [Success]");
-            } catch (Exception ex) {
-                Console.WriteLine("~> Melee patch [Failed]");
-                //Console.WriteLine(ex);
-            }
         }
     }    
 }

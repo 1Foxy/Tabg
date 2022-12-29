@@ -9,10 +9,14 @@ using UnityEngine;
 namespace Rape.Modules.Patches
 {
     
-    [HarmonyPatch(typeof(Gun), "Shoot", null)]
+    [HarmonyPatch(typeof(Gun))]
     public static class ShootPatch
     {
         public static ProjectileHit hit;
+
+
+        [HarmonyPrefix]
+        [HarmonyPatch("Shoot")]
         private static void Prefix(Gun __instance)
         {
             if (Config.Config.InfiniteAmmo)

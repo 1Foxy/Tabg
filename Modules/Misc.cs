@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using static Dreamteck.Splines.IO.SVG;
 
 namespace Rape.Modules
 {
@@ -62,5 +63,18 @@ namespace Rape.Modules
 
             dive.Launch(Vector3.up); 
         }
+
+
+
+        public static void test()
+        {
+            string[] str;
+            str = new string[3] { "Fuck", "The", "BLM" };
+
+
+
+            NetworkManager.Networkplayer.ShowChatMessage("black");
+        }
+
     }
 }

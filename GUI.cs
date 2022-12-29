@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using ExitGames.Client.Photon.LoadBalancing;
+using HarmonyLib;
 using Landfall.Network;
 using Landfall.TABG.UI.MainMenu;
 using Rape.Modules;
@@ -51,7 +52,6 @@ namespace Rape
 
             GUILayout.Label($"FOV: {Mathf.Floor(Camera.main.fieldOfView)}");
             Camera.main.fieldOfView = GUILayout.HorizontalSlider(Camera.main.fieldOfView, 0f, 360f);
-            Config.Config.RemoveShake = GUILayout.Toggle(Config.Config.RemoveShake, "Remove Shake");
 
             GUILayout.EndVertical();
             GUILayout.BeginVertical("BOX ESP", GUI.skin.box);
@@ -79,6 +79,7 @@ namespace Rape
             GUILayout.BeginVertical("Movement", GUI.skin.box);
             GUILayout.Space(20f);
             Config.Config.InfJump = GUILayout.Toggle(Config.Config.InfJump, "Inf Jump");
+            Config.Config.Fly = GUILayout.Toggle(Config.Config.Fly, "Fly" + " (Z)");
             if (Player.localPlayer != null) {
                 GUILayout.Label($"SpeedHack: {Mathf.Floor(Player.localPlayer.stats.movementSpeedAdd)}");
                 Player.localPlayer.stats.movementSpeedAdd = GUILayout.HorizontalSlider(Player.localPlayer.stats.movementSpeedAdd, 0f, 30f);
@@ -106,7 +107,6 @@ namespace Rape
 
             GUILayout.EndVertical();
         }
-
         public static void Index4()
         {
             GUILayout.BeginVertical("MISC", GUI.skin.box);
@@ -137,6 +137,15 @@ namespace Rape
             {
                 AntiCheatClient.Deinitialize();
                 AC_remove.FuckAC();
+            }
+
+            if (GUILayout.Button("Change IDS"))
+            {
+                Misc.test();
+            }
+            if (GUILayout.Button("Change IDS"))
+            {
+              
             }
 
             GUILayout.EndVertical();

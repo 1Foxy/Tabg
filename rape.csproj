@@ -64,8 +64,9 @@
     <Compile Include="Modules\Managers\PlayerManager.cs" />
     <Compile Include="Modules\Misc.cs" />
     <Compile Include="Modules\Movement.cs" />
+    <Compile Include="Modules\Patches\AntiCheatPatch.cs" />
     <Compile Include="Modules\Patches\AttackPatch.cs" />
-    <Compile Include="Modules\Patches\NoShakePatch.cs" />
+    <Compile Include="Modules\Patches\LoadBalancingClientPatch.cs" />
     <Compile Include="Modules\Patches\ShootPatch.cs" />
     <Compile Include="Modules\Render.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
