@@ -64,16 +64,23 @@ namespace Rape.Modules
             dive.Launch(Vector3.up); 
         }
 
-
-
-        public static void test()
+        public static void MarkerTeleport()
         {
-            string[] str;
-            str = new string[3] { "Fuck", "The", "BLM" };
+            var marker = GameObject.FindObjectOfType<Landfall.Network.MarkerHandler>().markers;
+            float lastChange = 99999f;
+            Vector3 pos = Camera.main.transform.position;
 
-
-
-            NetworkManager.Networkplayer.ShowChatMessage("black");
+            foreach (var mark in marker)
+            {
+                if (mark == null || !mark.active)
+                    continue;
+                if (mark.sinceChange < lastChange)
+                {
+                    pos = mark.position;
+                    lastChange = mark.sinceChange;
+                }
+            }
+            PlayerManager.LocalPlayer.GetComponentInChildren<Torso>().transform.position = pos;
         }
 
     }

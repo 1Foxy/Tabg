@@ -18,7 +18,7 @@ namespace Rape
 {
     public class Cheat : MonoBehaviour
     {
-        private Rect mainWRect = new Rect(5, 5, 500, 550);
+        private Rect mainWRect = new Rect(5, 5, 500, 850);
         private bool MenuShown = true;
         public static int selectedTab = 0;
         private float lastCacheTime = Time.time + 5f;
@@ -77,7 +77,6 @@ namespace Rape
                     }
                 }
             } //detected 
-
         }
 
         public void OnGUI() {
@@ -140,9 +139,39 @@ namespace Rape
         private void Patches()
         {
             var Rawr = new HarmonyLib.Harmony("fudhksbgsuhbj");
-            Rawr.PatchAll();
 
+            try
+            {
+                Rawr.Patch(typeof(Gun).GetMethod("Shoot"), null, new HarmonyMethod(AccessTools.Method(typeof(ShootPatch), ("Prefix"))));
+                Console.WriteLine("~> Gun patch   [Success]");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("~> Gun patch   [Failed]");
+                //Console.WriteLine(ex);
+            }
 
+            try
+            {
+                Rawr.Patch(typeof(MeleeWeapon).GetMethod("Attack"), new HarmonyMethod(AccessTools.Method(typeof(AttackPatch), ("Prefix"))));
+                Console.WriteLine("~> Melee patch [Success]");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("~> Melee patch [Failed]");
+                //Console.WriteLine(ex);
+            }
+
+            try
+            {
+                Rawr.Patch(typeof(WobbleShake).GetMethod("AddShake"), new HarmonyMethod(AccessTools.Method(typeof(NoShake), ("Prefix"))));
+                Console.WriteLine("~> Shake patch [Success]");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("~> Shake patch [Failed]");
+                //Console.WriteLine(ex);
+            }
         }
     }    
 }

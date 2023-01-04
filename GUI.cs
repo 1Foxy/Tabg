@@ -1,21 +1,15 @@
-﻿using ExitGames.Client.Photon.LoadBalancing;
-using HarmonyLib;
-using Landfall.Network;
-using Landfall.TABG.UI.MainMenu;
-using Rape.Modules;
+﻿using Rape.Modules;
 using Rape.Modules.Managers;
 using Rape.Settings;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Rape
 {
     internal class GUII
     {
+        public static WobbleShake gameObject;
+
         public static void Index0()
         {
             GUILayout.BeginVertical("AIM", GUI.skin.box);
@@ -57,16 +51,19 @@ namespace Rape
             GUILayout.BeginVertical("BOX ESP", GUI.skin.box);
             
             GUILayout.Space(20f);
+ 
             Config.Config.playerBox = GUILayout.Toggle(Config.Config.playerBox, "Player Box");
             Config.Config.Vehicle = GUILayout.Toggle(Config.Config.Vehicle, "Vehicle");
             Config.Config.playerName = GUILayout.Toggle(Config.Config.playerName, "Player Name");
             Config.Config.crosshair = GUILayout.Toggle(Config.Config.crosshair, "Crosshair");
             Config.Config.item = GUILayout.Toggle(Config.Config.item, "Item");
             Config.Config.LaunchPed = GUILayout.Toggle(Config.Config.LaunchPed, "LaunchPad");
+            Config.Config.ScreenShake = GUILayout.Toggle(Config.Config.ScreenShake, "Destry Shake");
 
             GUILayout.EndVertical();
-            
+
         }
+      
         public static void Index3()
         {
             GUILayout.BeginVertical("MISC", GUI.skin.box);
@@ -74,6 +71,7 @@ namespace Rape
             Config.Config.FastHeal = GUILayout.Toggle(Config.Config.FastHeal, "FastHeal");
             if (GUILayout.Button("Launch off")) { Misc.LaunchOff(); }
             if (GUILayout.Button("SkyDive")) { Misc.SkyDive(); }
+            if (GUILayout.Button("TP Marker")) { Misc.MarkerTeleport(); }
             GUILayout.EndVertical();
 
             GUILayout.BeginVertical("Movement", GUI.skin.box);
@@ -105,47 +103,18 @@ namespace Rape
             Config.Config.MakeLowRiderBike = GUILayout.Toggle(Config.Config.MakeLowRiderBike, "LowRider Bike");
             Config.Config.MakeLowRiderMotorCycle = GUILayout.Toggle(Config.Config.MakeLowRiderMotorCycle, "LowRider Motor");
 
+
             GUILayout.EndVertical();
         }
         public static void Index4()
         {
-            GUILayout.BeginVertical("MISC", GUI.skin.box);
+            GUILayout.BeginVertical("Test", GUI.skin.box);
             GUILayout.Space(20f);
 
-            if (GUILayout.Button("Bypass Ban"))
-            {
-                try
-                {
-                    PhotonExtensions.balancingClient.UserId = "rape";
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(PhotonExtensions.balancingClient.UserId.ToString());
-                    Console.WriteLine(ex.Message);
-                    throw;
-                }
-                
-
-                Console.WriteLine(PhotonExtensions.balancingClient.UserId.ToString()); //logs new userId to console
-            }
-            if (GUILayout.Button("DDOS server"))
-            {
-                //PhotonExtensions.photonLoadBalancingClient.NickName = "Fuck Niggers";
-                //PhotonExtensions.photonLoadBalancingClient.PhotonServerHandler.EndGame(playerBase.GroupIndex);
-            }
-            if(GUILayout.Button("ACKILLER"))
+            if(GUILayout.Button("Remove AC test"))
             {
                 AntiCheatClient.Deinitialize();
                 AC_remove.FuckAC();
-            }
-
-            if (GUILayout.Button("Change IDS"))
-            {
-                Misc.test();
-            }
-            if (GUILayout.Button("Change IDS"))
-            {
-              
             }
 
             GUILayout.EndVertical();

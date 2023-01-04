@@ -9,6 +9,8 @@ namespace Rape.Config
 {
     internal class Config
     {
+        public static float NextUpdate = 0f;
+
         public static bool magicBullet;
         public static bool InfiniteAmmo;
         public static bool RapidFire;
@@ -34,6 +36,7 @@ namespace Rape.Config
         public static bool crosshair = true;
         public static bool Vehicle;
         public static bool LaunchPed;
+        public static bool ScreenShake;
 
         public static float DeceptionBossCarBaseForce = 1.8f;
         public static float BikeBaseForce = 10;
@@ -41,6 +44,7 @@ namespace Rape.Config
         public static bool MakeLowRiderMotorCycle;
         public static bool MakeLowRiderDeceptionBossCar;
         public static bool MakeLowRiderBike;
+
 
 
         public static bool Test; //for testing purposes
